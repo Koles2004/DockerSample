@@ -3,6 +3,7 @@ jobs:
   build:
     environment:
       - CRYPTOGRAPHY_DONT_BUILD_RUST: 1
+      - COMPOSE_FILE: docker-compose.yml:docker-compose.ci.yml
   
     docker:
       - image: docker:17.12.0-ce-git
@@ -14,15 +15,10 @@ jobs:
           name: Installing dependencies
           command: |
             set -x
-            apk add --no-cache --no-progress bash musl-dev python3-dev libressl-dev libffi-dev gcc py3-pip make && pip3 install --upgrade pip && pip3 install wheel docker-compose
-            
+            apk add --no-cache --no-progress bash musl-dev python3-dev libressl-dev libffi-dev gcc py3-pip make && pip3 install --upgrade pip && pip3 install wheel docker-compose            
       - run:
-          name: Logging Docker and Application information
-          command: |
-            set -x
-            docker -v
-            docker-compose -v
-            ls -l
+          name: Preparing the environment
+          command: ./scripts/setup-env.sh
       - run:
-          name: Testing the Docker installation
-          command: docker container run hello-world
+          name: Running the test suite
+          command: ./scripts/run-specs.sh
