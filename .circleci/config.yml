@@ -12,7 +12,7 @@ jobs:
           command: |
             set -x
             apk add --no-cache --no-progress bash py-pip
-            pip install --quiet docker-compose pyrsistent==0.16.1
+            pip install --quiet docker-compose pyrsistent==0.16.1 --upgrade setuptools
       - run:
           name: Logging Docker and Application information
           command: |
