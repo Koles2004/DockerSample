@@ -21,4 +21,4 @@ jobs:
           command: ./scripts/setup-env.sh
       - run:
           name: Running the test suite
-          command: ./scripts/run-specs.sh
+          command: bash ./scripts/run-specs.sh
