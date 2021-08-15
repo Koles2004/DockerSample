@@ -17,5 +17,6 @@ ENV POSTGRES_HOST=localhost POSTGRES_USER=web_app POSTGRES_PASSWORD=
 
 EXPOSE 9292
 
+RUN chmod +x entrypoint.sh
 ENTRYPOINT ["/app/bin/docker-entrypoint.sh"]
 CMD ["bundle", "exec", "rackup", "-o", "0.0.0.0"]
