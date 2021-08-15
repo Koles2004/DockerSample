@@ -18,7 +18,7 @@ jobs:
             apk add --no-cache --no-progress bash musl-dev python3-dev libressl-dev libffi-dev gcc py3-pip make && pip3 install --upgrade pip && pip3 install wheel docker-compose            
       - run:
           name: Preparing the environment
-          command: ./scripts/setup-env.sh
+          command: sh ./scripts/setup-env.sh
       - run:
           name: Running the test suite
           command: sh ./scripts/run-specs.sh
