@@ -11,8 +11,8 @@ jobs:
           name: Installing dependencies
           command: |
             set -x
-            apk add --no-cache --no-progress bash python3-dev py3-pip
-            pip3 install --upgrade pip --quiet docker-compose
+            apk add --no-cache --no-progress bash python3-dev py3-pip && pip3 install --upgrade pip
+            
       - run:
           name: Logging Docker and Application information
           command: |
