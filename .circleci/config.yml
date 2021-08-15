@@ -11,7 +11,7 @@ jobs:
           name: Installing dependencies
           command: |
             set -x
-            apk add --no-cache --no-progress bash python3-dev libffi-dev gcc py3-pip && pip3 install --upgrade pip docker-compose
+            apk add --no-cache --no-progress bash musl-dev python3-dev libffi-dev gcc py3-pip && pip3 install --upgrade pip docker-compose
             
       - run:
           name: Logging Docker and Application information
