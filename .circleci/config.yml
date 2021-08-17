@@ -32,6 +32,7 @@ jobs:
             export COMPOSE_FILE=docker-compose.build.yml
             export GIT_SHA=`git rev-parse HEAD`
             docker-compose build --pull
+            docker login -u $DOCKER_USER -p $DOCKER_PASS
             docker-compose push
       - store_artifacts:
           path: /tmp/artifacts
