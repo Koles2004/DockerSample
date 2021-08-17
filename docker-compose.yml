@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
   app:
-    image: jfahrer/demo_web_app:latest
+    image: koles2004/demo_web_app:latest
     environment:
       - POSTGRES_HOST=pg
       - POSTGRES_USER=web_app

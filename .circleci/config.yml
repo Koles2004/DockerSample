@@ -32,6 +32,6 @@ jobs:
             export COMPOSE_FILE=docker-compose.build.yml
             export GIT_SHA=`git rev-parse HEAD`
             docker-compose build --pull
-            docker-compose push koles2004/webexample
+            docker-compose push
       - store_artifacts:
           path: /tmp/artifacts
